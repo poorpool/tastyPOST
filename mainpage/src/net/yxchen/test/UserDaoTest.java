@@ -3,22 +3,23 @@ package net.yxchen.test;
 import net.yxchen.dao.UserDao;
 import net.yxchen.dao.impl.UserDaoImpl;
 import net.yxchen.pojo.User;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class UserDaoTest {
+public class UserDaoTest {
     UserDao userDao = new UserDaoImpl();
-    @org.junit.jupiter.api.Test
-    void queryUserByUsername() {
+    @Test
+    public void queryUserByUsername() {
         User user = userDao.queryUserByUsername("admin");
-        System.out.println(user);
+        System.out.println(user.getPassword());
     }
 
-    @org.junit.jupiter.api.Test
-    void queryUserByUsernameAndPassword() {
+    @Test
+    public void queryUserByUsernameAndPassword() {
     }
 
-    @org.junit.jupiter.api.Test
-    void saveUser() {
+    @Test
+    public void saveUser() {
     }
 }

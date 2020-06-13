@@ -2,6 +2,8 @@
 
 ## 表单设计
 
+数据库名字tastypost
+
 ### 用户
 
 | 项目 | 名字 | 类别 | 键 | 备注 |
@@ -22,4 +24,9 @@ create table t_user (
     `privilege` int not null,
     `registerDate` date not null
 );
+
+insert into t_user (`username`, `password`, `email`, `privilege`, `registerDate`) values ("admin", 加密以后的东西, 
+	"489679970@qq.com", 5, now());
+    
+select * from t_user;
 ```
