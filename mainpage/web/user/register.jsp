@@ -18,11 +18,9 @@
   <script type="text/javascript" src="/static/script/sha512.js"></script>
   <script>
     function encryptAndSubmit() {
-        var $password = $("form > div:eq(1) > div > input");
+        var $password = $("form > div:eq(1) > input");
         var encryptedData = sha512($password.val());
         $password.val(encryptedData);
-        alert("faq?");
-        return false;
     }
 
     $(function () {
@@ -59,7 +57,10 @@
                 ]
             },
           },onSuccess: function(){
-              alert("faq");
+              encryptAndSubmit();
+              $.post("/userServlet", "action=registerUser&" + $(this).serialize(), function (data) {
+                  alert(data);
+              }, "json");
           }
       });
     });
@@ -72,7 +73,7 @@
       <h1 class="ui header">注册</h1>
       <div class="ui container">
         <div class="ui placeholder segment">
-          <form class="ui form" action="/userServlet?action=registerUser" method="post" onsubmit="return encryptAndSubmit();">
+          <form class="ui form" action="/userServlet?action=registerUser" method="post">
             <div class="field">
               <label>用户名</label>
               <input type="text" name="username" placeholder="username"/>

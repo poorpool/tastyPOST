@@ -19,3 +19,4 @@
 <link type="text/css" rel="stylesheet" href="static/css/style.css"/>
 <script type="text/javascript" src="static/script/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="static/css/Semantic-UI/semantic.min.js"></script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>

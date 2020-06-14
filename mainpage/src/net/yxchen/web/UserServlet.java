@@ -43,7 +43,7 @@ public class UserServlet extends BaseServlet {
      * @throws IOException
      */
     protected void registerUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println(req.getParameter("password"));
     }
 
 
