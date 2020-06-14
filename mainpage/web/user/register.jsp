@@ -24,6 +24,9 @@
     }
 
     $(function () {
+      $(".kaptcha").click(function () {
+        $(this).attr("src", "kaptcha.jpg?d=" + new Date());
+      });
       $('.ui.form')
         .form({
           fields: {
@@ -48,15 +51,24 @@
               ]
             },
             email: {
-                identifier: 'email',
-                rules: [
-                  {
-                    type: 'email',
-                    prompt: '请输入合法邮箱'
-                  }
-                ]
+              identifier: 'email',
+              rules: [
+                {
+                  type: 'email',
+                  prompt: '请输入合法邮箱'
+                }
+              ]
             },
-          },onSuccess: function(){
+            verify: {
+              identifier: 'verify',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: '请输入验证码'
+                }
+              ]
+            },
+          }, onSuccess: function(){
               encryptAndSubmit();
               $.post("/userServlet", "action=registerUser&" + $(this).serialize(), function (data) {
                   alert(data);
@@ -73,10 +85,10 @@
       <h1 class="ui header">注册</h1>
       <div class="ui container">
         <div class="ui placeholder segment">
-          <form class="ui form" action="/userServlet?action=registerUser" method="post">
+          <form class="ui form" action="/userServlet?action=registerUser" method="post" onclick='$(".ui.negative.message").hide()'>
             <div class="field">
               <label>用户名</label>
-              <input type="text" name="username" placeholder="username"/>
+              <input type="text" name="username" placeholder="username" value="${requestScope.username}"/>
             </div>
             <div class="field">
               <label>密码</label>
@@ -84,23 +96,41 @@
             </div>
             <div class="field">
               <label>邮箱</label>
-              <input type="email" name="email" placeholder="email"/>
+              <input type="text" name="email" placeholder="email" value="${requestScope.email}"/>
+            </div>
+            <div class="field">
+              <label>验证码</label>
+              <div class="two fields">
+                <div class="field">
+                  <input type="text" name="verify" placeholder="verify"/>
+                </div>
+                <div class="field">
+                  <img class="kaptcha" src="kaptcha.jpg" height="40px"/>
+                </div>
+              </div>
             </div>
             <button type="submit" class="ui primary button">注册</button>
-
-            <!--显示校验信息-->
+            <!--显示回传的错误信息 -->
+            <c:if test="${not empty requestScope.errorMessage}">
+              <div class="ui negative message transition">
+                <div class="header">
+                    ${requestScope.errorMessage}
+                </div>
+              </div>
+            </c:if>
+            <!--显示 html 表单的校验信息 -->
             <div class="ui error message"></div>
           </form>
           <div class="ui horizontal divider">
             Or
           </div>
           <div class="middle aligned">
-            <div class="ui button">
+            <div class="ui button" onclick="window.location.href = 'user/login.jsp'">
               <i class="sign-in icon"></i>
               登录
             </div>
             <div class="two ui buttons">
-              <button class="ui button">回到广场</button>
+              <button class="ui button" onclick="window.location.href='square/index.jsp'">回到广场</button>
               <button class="ui button">回到论坛</button>
             </div>
           </div>

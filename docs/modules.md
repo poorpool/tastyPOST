@@ -17,3 +17,7 @@ junit4 和 hamecrest
 sha512.js
 
 taglibs
+
+kaptcha
+
+gson

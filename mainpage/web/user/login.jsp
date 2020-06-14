@@ -60,12 +60,12 @@
           Or
         </div>
         <div class="middle aligned">
-          <div class="ui button">
+          <div class="ui button" onclick="window.location.href = 'user/register.jsp'">
             <i class="signup icon"></i>
             注册
           </div>
           <div class="two ui buttons">
-            <button class="ui button">回到广场</button>
+            <button class="ui button" onclick="window.location.href='square/index.jsp'">回到广场</button>
             <button class="ui button">回到论坛</button>
           </div>
         </div>

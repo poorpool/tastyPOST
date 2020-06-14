@@ -22,7 +22,7 @@
       <h1 class="ui header">登录成功！</h1>
       <div class="ui text container stacked segments">
         <div class="ui segment"><p>你要去哪儿？</p></div>
-        <a href="http://www.baidu.com"><div class="ui segment">广场</div></a>
+        <a href="square/index.jsp"><div class="ui segment">广场</div></a>
         <a href="http://www.baidu.com"><div class="ui segment">论坛</div></a>
       </div>
     </div>
