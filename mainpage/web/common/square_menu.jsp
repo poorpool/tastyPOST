@@ -23,6 +23,11 @@
         <div class="item">
           <a href="#">${sessionScope.user.username}</a>
         </div>
+        <c:if test="${sessionScope.user.privilege >= 4}">
+          <div class="item">
+            <a href="square/management/management.jsp" class="ui primary button">管理</a>
+          </div>
+        </c:if>
         <div class="item">
           <a class="ui button" onclick="window.location.href = '/userServlet?action=logout'">登出</a>
         </div>

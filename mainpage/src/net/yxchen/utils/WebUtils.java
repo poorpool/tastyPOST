@@ -21,4 +21,20 @@ public class WebUtils {
         }
         return bean;
     }
+
+    /**
+     * 从字符串取得数字
+     * @param str 要取得数字的字符串
+     * @param defaultInt 如果取得失败，默认返回的值
+     * @return 取得结果
+     */
+    public static Integer pasreInt(String str, Integer defaultInt) {
+        Integer result = defaultInt;
+        try {
+            result = Integer.parseInt(str);
+        } catch (Exception e) {
+            ;
+        }
+        return result;
+    }
 }

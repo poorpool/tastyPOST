@@ -22,6 +22,15 @@
         <url-pattern>/kaptcha.jpg</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ManagementServlet</servlet-name>
+        <servlet-class>net.yxchen.web.ManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManagementServlet</servlet-name>
+        <url-pattern>/management/managementServlet</url-pattern>
+    </servlet-mapping>
+
     <!-- fliter -->
     <filter>
         <filter-name>TransactionFilter</filter-name>
@@ -30,6 +39,15 @@
     <filter-mapping>
         <filter-name>TransactionFilter</filter-name>
         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>ManagementFilter</filter-name>
+        <filter-class>net.yxchen.filter.ManagementFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ManagementFilter</filter-name>
+        <url-pattern>/square/management/*</url-pattern>
     </filter-mapping>
     
     <!-- error-page -->
