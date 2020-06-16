@@ -31,4 +31,26 @@ public interface TagDao {
      * @return -1 如果删除失败，其他删除成功
      */
     public int deleteTag(int tagId);
+
+    /**
+     * 插入一对卡片和标签
+     * @param cardId 卡片的 id
+     * @param tagId 标签的 id
+     * @return -1 失败，其他成功
+     */
+    public int insertCardAndTag(int cardId, int tagId);
+
+    /**
+     * 通过标签 id 查询标签
+     * @param tagId 标签 id
+     * @return null 就是不存在，否则就是对应标签对象
+     */
+    public Tag queryTagById(int tagId);
+
+    /**
+     * 根据卡片 id 查询标签（不包括 first tag）
+     * @param cardId 卡片 id
+     * @return 标签的 list
+     */
+    public List<Tag> queryTagsByCardId(int cardId);
 }

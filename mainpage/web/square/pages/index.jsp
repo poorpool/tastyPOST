@@ -24,22 +24,24 @@
   <div class="ui container segment grid" style="margin-top: 60px; padding-top: 0;">
     <div class="eleven wide column">
       <div class="ui two stackable cards">
-        <c:forEach begin="1" end="20">
+        <c:forEach items="${requestScope.page.items}" var="card">
           <div class="ui card">
-            <div class="image">
-              <img src="images/9/2020/1.jpeg"/>
-            </div>
+            <c:if test="${not empty card.imgPath}">
+              <div class="image">
+                <img src="${card.imgPath}"/>
+              </div>
+            </c:if>
             <div class="content">
-              <a class="header">美丽猫猫</a>
+              <a class="header">${card.title}</a>
               <div class="meta">
-                <span class="date">2020-06-13</span>
+                <span class="date">${card.date}</span>
                 <span class="right floated">
                   <i class="user icon"></i>
-                  poorpool
+                  ${card.userId}
                 </span>
               </div>
               <div class="catag">
-                <div class="ui label">东四食堂二楼</div>
+                <div class="ui label">${card.firstTagId}</div>
                 <div class="ui tag label">小猫</div>
                 <div class="ui tag label">喵喵</div>
                 <div class="ui tag label">喵喵</div>
@@ -48,17 +50,17 @@
                 <div class="ui tag label">喵喵</div>
               </div>
               <div class="description">
-                猫猫是一只猫猫，器狼覺得你們一天,了喔現場:想了什麼啊啊興趣跟我今晚,什麼很少。四十提醒能量其實如果:單四時候?的對在你自然啦啦,的開會生,時候幾句。
+                ${card.content}
               </div>
             </div>
             <div class="additional content">
               <span class="comments" onclick="commentsToggle();">
                 <i class="comment icon"></i>
-                3 comments
+                ${card.commentNum} comments
               </span>
               <span class="right floated likes">
                 <i class="heart outline like icon"></i>
-                17 likes
+                ${card.likeNum} likes
               </span>
             </div>
             <div class="ui comments" style="margin: 10px; display: none;">
@@ -92,7 +94,7 @@
       </div>
     </div>
     <div class="right floated five wide column">
-      d
+      <a class="ui primary basic fluid button" href="square/pages/createCard.jsp">创建新卡片</a>
     </div>
   </div>
 </body>

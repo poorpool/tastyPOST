@@ -2,7 +2,10 @@ package net.yxchen.utils;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class WebUtils {
@@ -29,6 +32,9 @@ public class WebUtils {
      * @return 取得结果
      */
     public static Integer pasreInt(String str, Integer defaultInt) {
+        if (str == null) {
+            return defaultInt;
+        }
         Integer result = defaultInt;
         try {
             result = Integer.parseInt(str);
@@ -36,5 +42,19 @@ public class WebUtils {
             ;
         }
         return result;
+    }
+
+    /**
+     * 把逗号分割的字符串转化为 int 的 List
+     * @param str 要转化的字符串
+     * @return 转化的 list
+     */
+    public static List<Integer> parseStringToIntListByComma(String str) {
+        String[] strs = str.split(",");
+        List<Integer> list = new ArrayList<>();
+        for(String string : strs) {
+            list.add(pasreInt(string.trim(), 0));
+        }
+        return list;
     }
 }

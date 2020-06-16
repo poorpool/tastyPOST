@@ -1,28 +1,33 @@
 package net.yxchen.pojo;
 
 import java.util.Date;
+import java.util.List;
 
-public class Card {
+public class CardItem {
     private Integer cardId;
     private String title;
-    private Date date;
-    private Integer userId;
+    private String date;//展示方便
+    private Integer userId;//展示方便
+    private String username;
     private String content;
-    private Integer firstTagId;
-    private String imgPath;
+    private Tag firstTag;//展示方便
+    private List<Tag> otherTags;
+    private String imgPath;//从本地磁盘真实路径转化成网络 url
     private Integer likeNum;
     private Integer commentNum;
 
-    public Card() {
+    public CardItem() {
     }
 
-    public Card(Integer cardId, String title, Date date, Integer userId, String content, Integer firstTagId, String imgPath, Integer likeNum, Integer commentNum) {
+    public CardItem(Integer cardId, String title, String date, Integer userId, String username, String content, Tag firstTag, List<Tag> otherTags, String imgPath, Integer likeNum, Integer commentNum) {
         this.cardId = cardId;
         this.title = title;
         this.date = date;
         this.userId = userId;
+        this.username = username;
         this.content = content;
-        this.firstTagId = firstTagId;
+        this.firstTag = firstTag;
+        this.otherTags = otherTags;
         this.imgPath = imgPath;
         this.likeNum = likeNum;
         this.commentNum = commentNum;
@@ -44,11 +49,11 @@ public class Card {
         this.title = title;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -60,6 +65,14 @@ public class Card {
         this.userId = userId;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getContent() {
         return content;
     }
@@ -68,12 +81,20 @@ public class Card {
         this.content = content;
     }
 
-    public Integer getFirstTagId() {
-        return firstTagId;
+    public Tag getFirstTag() {
+        return firstTag;
     }
 
-    public void setFirstTagId(Integer firstTagId) {
-        this.firstTagId = firstTagId;
+    public void setFirstTag(Tag firstTag) {
+        this.firstTag = firstTag;
+    }
+
+    public List<Tag> getOtherTags() {
+        return otherTags;
+    }
+
+    public void setOtherTags(List<Tag> otherTags) {
+        this.otherTags = otherTags;
     }
 
     public String getImgPath() {
@@ -102,13 +123,15 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
+        return "CardItem{" +
                 "cardId=" + cardId +
                 ", title='" + title + '\'' +
-                ", date=" + date +
+                ", date='" + date + '\'' +
                 ", userId=" + userId +
+                ", username='" + username + '\'' +
                 ", content='" + content + '\'' +
-                ", firstTagId=" + firstTagId +
+                ", firstTag=" + firstTag +
+                ", otherTags=" + otherTags +
                 ", imgPath='" + imgPath + '\'' +
                 ", likeNum=" + likeNum +
                 ", commentNum=" + commentNum +

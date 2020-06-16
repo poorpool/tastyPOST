@@ -21,3 +21,7 @@ taglibs
 kaptcha
 
 gson
+
+commons-fileupload
+
+commons-io

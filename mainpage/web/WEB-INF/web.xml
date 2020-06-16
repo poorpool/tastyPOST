@@ -28,7 +28,25 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ManagementServlet</servlet-name>
-        <url-pattern>/management/managementServlet</url-pattern>
+        <url-pattern>/square/management/managementServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateCardServlet</servlet-name>
+        <servlet-class>net.yxchen.web.CreateCardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateCardServlet</servlet-name>
+        <url-pattern>/square/client/createCardServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PageServlet</servlet-name>
+        <servlet-class>net.yxchen.web.PageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageServlet</servlet-name>
+        <url-pattern>/pageServlet</url-pattern>
     </servlet-mapping>
 
     <!-- fliter -->
@@ -48,6 +66,16 @@
     <filter-mapping>
         <filter-name>ManagementFilter</filter-name>
         <url-pattern>/square/management/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>ClientFilter</filter-name>
+        <filter-class>net.yxchen.filter.ClientFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ClientFilter</filter-name>
+        <url-pattern>/square/client/*</url-pattern>
+        <url-pattern>/square/pages/createCard.jsp</url-pattern>
     </filter-mapping>
     
     <!-- error-page -->

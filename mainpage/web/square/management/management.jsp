@@ -16,7 +16,7 @@
     });
     function ajaxQueryAllTags() {
       $.ajax({
-          url: "management/managementServlet",
+          url: "square/management/managementServlet",
           data: {action: "ajaxQueryAllTags"},
           type: "GET",
           success: function (msg) {
@@ -33,7 +33,7 @@
     }
     function ajaxAddTag() {
         $.ajax({
-            url: "management/managementServlet",
+            url: "square/management/managementServlet",
             data: {action: "ajaxAddTag", tagName: $("input[name='tagName']").val()},
             type: "GET",
             success: function (msg) {
@@ -53,7 +53,7 @@
             return ;
         }
         $.ajax({
-            url: "management/managementServlet",
+            url: "square/management/managementServlet",
             data: {action: "ajaxDeleteTag", tagId: $tagObj.attr('tagid')},
             type: "GET",
             success: function (msg) {

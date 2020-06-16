@@ -24,4 +24,11 @@ public interface UserDao {
      * @return -1是保存失败，其他是影响的行数
      */
     public int saveUser(User user);
+
+    /**
+     * 根据 id 查询用户
+     * @param userId 用户 id
+     * @return 用户
+     */
+    public User queryUserByid(int userId);
 }

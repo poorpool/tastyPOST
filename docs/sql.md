@@ -59,6 +59,7 @@ create table t_tag(
 |用户 id| userId |int|t_user userId 的外键 |not null|
 |正文内容|content|varchar(2000)| | |
 |第一标签 id|firstTagId|int|t_tag tagId 的外键 |not null，这个就相当于“分类”|
+|图片路径|imgPath|varchar(200)| | |
 |点赞数量|likeNum|int| |not null|
 |评论数量|commentNum|int| |not null|
 
@@ -70,6 +71,7 @@ create table t_card (
     `userId` int not null,
     `content` varchar(2000),
     `firstTagId` int not null,
+    `imgPath` varchar(200),
     `likeNum` int not null,
     `commentNum` int not null,
     foreign key(`userId`) references t_user(`userId`),

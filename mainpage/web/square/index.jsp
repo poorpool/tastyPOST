@@ -7,4 +7,4 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%-- 这个仅仅用来转发到真正的 jsp/servlet --%>
-<jsp:forward page="/square/pages/index.jsp"></jsp:forward>
+<jsp:forward page="/pageServlet?action=queryForPage"></jsp:forward>
