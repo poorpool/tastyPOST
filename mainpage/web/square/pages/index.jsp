@@ -26,69 +26,69 @@
       <div class="ui two stackable cards">
         <c:forEach items="${requestScope.page.items}" var="item"><%-- CardItem 类型 --%>
           <div class="ui card" cardid="${item.cardId}">
-            <c:if test="${not empty item.imgPath}">
-              <div class="image">
-                <img src="${item.imgPath}"/>
-              </div>
-            </c:if>
-            <div class="content">
-              <a class="header">${item.title}</a>
-              <div class="meta">
-                <span class="date">${item.date}</span>
-                <span class="right floated">
+              <c:if test="${not empty item.imgPath}">
+                <div class="image">
+                  <img src="${item.imgPath}"/>
+                </div>
+              </c:if>
+              <div class="content">
+                <a class="header">${item.title}</a>
+                <div class="meta">
+                  <span class="date">${item.date}</span>
+                  <span class="right floated">
                   <a userid="${item.userId}">
                     <i class="user icon"></i>
                     ${item.username}
                   </a>
                 </span>
+                </div>
+                <div class="catag">
+                  <div class="ui label">${item.firstTag.name}</div>
+                  <c:forEach items="${item.otherTags}" var="otherTag">
+                    <div class="ui tag label">${otherTag.name}</div>
+                  </c:forEach>
+                </div>
+                <div class="description">
+                    ${item.content}
+                </div>
               </div>
-              <div class="catag">
-                <div class="ui label">${item.firstTag.name}</div>
-                <c:forEach items="${item.otherTags}" var="otherTag">
-                  <div class="ui tag label">${otherTag.name}</div>
-                </c:forEach>
-              </div>
-              <div class="description">
-                ${item.content}
-              </div>
-            </div>
-            <div class="additional content">
+              <div class="additional content">
               <span class="comments" onclick="commentsToggle();">
                 <i class="comment icon"></i>
                 ${item.commentNum} 评论
               </span>
-              <span class="right floated likes">
+                <span class="right floated likes">
                 <i class="heart outline like icon"></i>
                 ${item.likeNum} 喜欢
               </span>
-            </div>
-            <div class="ui comments" style="margin: 10px; display: none;">
-              <div class="comment">
-                <a class="avatar">
-                </a>
-                <div class="content">
-                  <a class="author">Matt</a>
-                  <div class="metadata">
-                    <span class="date">Today at 5:42PM</span>
-                  </div>
-                  <div class="text">
-                    How artistic!
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
               </div>
-              <form class="ui reply form">
-                <div class="field">
-                  <textarea></textarea>
+              <div class="ui comments" style="margin: 10px; display: none;">
+                <div class="comment">
+                  <a class="avatar">
+                  </a>
+                  <div class="content">
+                    <a class="author">Matt</a>
+                    <div class="metadata">
+                      <span class="date">Today at 5:42PM</span>
+                    </div>
+                    <div class="text">
+                      How artistic!
+                    </div>
+                    <div class="actions">
+                      <a class="reply">Reply</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="ui blue labeled submit icon button">
-                  <i class="icon edit"></i> Add Reply
-                </div>
-              </form>
+                <form class="ui reply form">
+                  <div class="field">
+                    <textarea></textarea>
+                  </div>
+                  <div class="ui blue labeled submit icon button">
+                    <i class="icon edit"></i> Add Reply
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
         </c:forEach>
       </div>
     </div>
