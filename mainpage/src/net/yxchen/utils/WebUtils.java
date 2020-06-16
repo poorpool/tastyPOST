@@ -50,6 +50,9 @@ public class WebUtils {
      * @return 转化的 list
      */
     public static List<Integer> parseStringToIntListByComma(String str) {
+        if (str == null || str.trim().length() == 0) {
+            return new ArrayList<>();
+        }
         String[] strs = str.split(",");
         List<Integer> list = new ArrayList<>();
         for(String string : strs) {

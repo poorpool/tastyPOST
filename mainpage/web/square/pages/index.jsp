@@ -24,43 +24,42 @@
   <div class="ui container segment grid" style="margin-top: 60px; padding-top: 0;">
     <div class="eleven wide column">
       <div class="ui two stackable cards">
-        <c:forEach items="${requestScope.page.items}" var="card">
-          <div class="ui card">
-            <c:if test="${not empty card.imgPath}">
+        <c:forEach items="${requestScope.page.items}" var="item"><%-- CardItem 类型 --%>
+          <div class="ui card" cardid="${item.cardId}">
+            <c:if test="${not empty item.imgPath}">
               <div class="image">
-                <img src="${card.imgPath}"/>
+                <img src="${item.imgPath}"/>
               </div>
             </c:if>
             <div class="content">
-              <a class="header">${card.title}</a>
+              <a class="header">${item.title}</a>
               <div class="meta">
-                <span class="date">${card.date}</span>
+                <span class="date">${item.date}</span>
                 <span class="right floated">
-                  <i class="user icon"></i>
-                  ${card.userId}
+                  <a userid="${item.userId}">
+                    <i class="user icon"></i>
+                    ${item.username}
+                  </a>
                 </span>
               </div>
               <div class="catag">
-                <div class="ui label">${card.firstTagId}</div>
-                <div class="ui tag label">小猫</div>
-                <div class="ui tag label">喵喵</div>
-                <div class="ui tag label">喵喵</div>
-                <div class="ui tag label">喵喵</div>
-                <div class="ui tag label">喵喵</div>
-                <div class="ui tag label">喵喵</div>
+                <div class="ui label">${item.firstTag.name}</div>
+                <c:forEach items="${item.otherTags}" var="otherTag">
+                  <div class="ui tag label">${otherTag.name}</div>
+                </c:forEach>
               </div>
               <div class="description">
-                ${card.content}
+                ${item.content}
               </div>
             </div>
             <div class="additional content">
               <span class="comments" onclick="commentsToggle();">
                 <i class="comment icon"></i>
-                ${card.commentNum} comments
+                ${item.commentNum} 评论
               </span>
               <span class="right floated likes">
                 <i class="heart outline like icon"></i>
-                ${card.likeNum} likes
+                ${item.likeNum} 喜欢
               </span>
             </div>
             <div class="ui comments" style="margin: 10px; display: none;">

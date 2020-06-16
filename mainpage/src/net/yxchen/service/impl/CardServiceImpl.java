@@ -48,7 +48,9 @@ public class CardServiceImpl implements CardService {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         for (Card card : list) {
             String imgPath = card.getImgPath();
-            imgPath = basePath + imgPath.substring(imgPath.lastIndexOf("/upload"));
+            if (imgPath!=null && imgPath.length() != 0) {
+                imgPath = basePath + imgPath.substring(imgPath.lastIndexOf("/upload"));
+            }
             User user = userDao.queryUserByid(card.getUserId());
             cardItems.add(new CardItem(card.getCardId(), card.getTitle(), sdf.format(card.getDate()), user.getUserId(), user.getUsername(),
                     card.getContent(), tagDao.queryTagById(card.getFirstTagId()), tagDao.queryTagsByCardId(card.getCardId()), imgPath,

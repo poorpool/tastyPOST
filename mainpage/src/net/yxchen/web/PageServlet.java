@@ -42,7 +42,6 @@ public class PageServlet extends BaseServlet {
                 + ":" + req.getServerPort() + req.getContextPath();
         Page<CardItem> page = cardService.queryPage(pageNo, pageSize, basePath);
         page.setUrl(basePath + "/pageServlet?action=queryForPage");
-        System.out.println(page);
         req.setAttribute("page", page);
         req.getRequestDispatcher("/square/pages/index.jsp").forward(req, resp);
     }

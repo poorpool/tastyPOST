@@ -57,6 +57,8 @@ public class CreateCardServlet extends HttpServlet {
                 } else if("otherTags".equals(fieldName)) {
                     String otherTags = fileItem.getString();
                     otherTagList = WebUtils.parseStringToIntListByComma(otherTags);
+                    System.out.println("othertags:[" + otherTags + "]");
+                    System.out.println(otherTagList);
                 } else if("content".equals(fieldName)) {
                     String content = fileItem.getString("UTF-8");
                     card.setContent(content);

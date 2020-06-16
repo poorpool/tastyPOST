@@ -55,7 +55,7 @@ create table t_tag(
 |:---:|:---:|:---:|:---:|:---:|
 |card id| cardId | int | primary key | auto_increment |
 |标题|title|varchar(100)| |not null|
-|日期|createDate|date| |not null|
+|日期|createDate|datetime| |not null|
 |用户 id| userId |int|t_user userId 的外键 |not null|
 |正文内容|content|varchar(2000)| | |
 |第一标签 id|firstTagId|int|t_tag tagId 的外键 |not null，这个就相当于“分类”|
@@ -67,7 +67,7 @@ create table t_tag(
 create table t_card (
 	`cardId` int primary key auto_increment,
     `title` varchar(100) not null,
-    `createDate` date not null,
+    `createDate` datetime not null,
     `userId` int not null,
     `content` varchar(2000),
     `firstTagId` int not null,
@@ -106,7 +106,7 @@ create table t_card_and_tag(
 |评论 id |commentId|int|primary key|auto_increment|
 |卡片 id|cardId|int|t_card cardId 的外键 |not null|
 |用户 id|userId|int|t_user userId 的外键 |not null|
-|评论时间|createDate|date| |not null|
+|评论时间|createDate|datetime| |not null|
 |评论正文|content|varchar(1000)| |not null|
 
 ```sql
@@ -114,7 +114,7 @@ create table t_comment(
 	`commentId` int primary key auto_increment,
     `cardId` int not null,
     `userId` int not null,
-    `createDate` date not null,
+    `createDate` datetime not null,
     `content` varchar(1000) not null,
     foreign key(`cardId`) references t_card(`cardId`),
     foreign key(`userId`) references t_user(`userId`)
